@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment variables (SIRLI MA'LUMOTLAR - hech qachon git'ga qo'shilmasin)
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Prisma
+# (schema.prisma va migrations/ papkasi COMMIT QILINADI, faqat generated client emas)
+generated/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel
