@@ -2,6 +2,8 @@ import "dotenv/config";
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import prismaPlugin from "./plugins/prisma";
+import jwtPlugin from "./plugins/jwt";
+import authRoutes from "./routes/auth";
 
 const fastify = Fastify({
   logger: true,
@@ -16,6 +18,12 @@ async function main() {
 
   // Prisma plugin — bazaga ulanish
   await fastify.register(prismaPlugin);
+
+  // JWT plugin — token yaratish/tekshirish
+  await fastify.register(jwtPlugin);
+
+  // Auth route'lar — /auth/google, /auth/me
+  await fastify.register(authRoutes);
 
   // Sog'lik tekshiruvi endpointi — server va baza ishlayotganini tekshirish uchun
   fastify.get("/health", async () => {
